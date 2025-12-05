@@ -13,11 +13,11 @@ import com.junior.pagamento.repository.PagamentoRepository;
 @Service
 public class PagamentoService {
 	private final PagamentoRepository repository;
+	private final PagamentoProducer pagamentoProducer;
 
-
-	public PagamentoService(PagamentoRepository repository) {
+	public PagamentoService(PagamentoRepository repository, PagamentoProducer pagamentoProducer) {
 		this.repository = repository;
-		
+		this.pagamentoProducer = pagamentoProducer;
 	}
 
 	@Transactional(readOnly = true)
@@ -38,7 +38,7 @@ public class PagamentoService {
 
 		pagamento.setStatus(StatusPagamento.CONFIRMADO);
 		Pagamento salvo = repository.save(pagamento);
-		
+		pagamentoProducer.enviarPagamentoConfirmado(salvo);
 
 		return new PagamentoDTO(salvo);
 	}
