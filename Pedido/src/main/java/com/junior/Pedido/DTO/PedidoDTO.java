@@ -1,4 +1,4 @@
-package com.junior.Pedido;
+package com.junior.Pedido.DTO;
 
 import java.time.LocalDateTime;
 import java.util.List;
