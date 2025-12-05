@@ -1,0 +1,5 @@
+package com.junior.Pedido;
+
+public class PedidoDTO {
+
+}

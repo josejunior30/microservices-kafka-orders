@@ -1,0 +1,111 @@
+package com.junior.Pedido.entities;
+
+import java.math.BigDecimal;
+import java.util.Objects;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="tb_item_cardapio")
+public class ItemCardapio {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	  private String nome;
+	  private String descricao;
+
+	  @Enumerated(EnumType.STRING)
+	  private CategoriaCardapio categoria;
+
+	  private BigDecimal preco;
+	  @Column(name="preco_promocional")
+	  private BigDecimal precoPromocional;
+	  
+	  public ItemCardapio() {
+		  
+	  }
+
+	  public ItemCardapio(Long id, String nome, String descricao, CategoriaCardapio categoria, BigDecimal preco,
+			BigDecimal precoPromocional) {
+	
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.categoria = categoria;
+		this.preco = preco;
+		this.precoPromocional = precoPromocional;
+	  }
+
+	  public Long getId() {
+		  return id;
+	  }
+
+	  public void setId(Long id) {
+		  this.id = id;
+	  }
+
+	  public String getNome() {
+		  return nome;
+	  }
+
+	  public void setNome(String nome) {
+		  this.nome = nome;
+	  }
+
+	  public String getDescricao() {
+		  return descricao;
+	  }
+
+	  public void setDescricao(String descricao) {
+		  this.descricao = descricao;
+	  }
+
+	  public CategoriaCardapio getCategoria() {
+		  return categoria;
+	  }
+
+	  public void setCategoria(CategoriaCardapio categoria) {
+		  this.categoria = categoria;
+	  }
+
+	  public BigDecimal getPreco() {
+		  return preco;
+	  }
+
+	  public void setPreco(BigDecimal preco) {
+		  this.preco = preco;
+	  }
+
+	  public BigDecimal getPrecoPromocional() {
+		  return precoPromocional;
+	  }
+
+	  public void setPrecoPromocional(BigDecimal precoPromocional) {
+		  this.precoPromocional = precoPromocional;
+	  }
+
+	  @Override
+	  public int hashCode() {
+		return Objects.hash(id);
+	  }
+
+	  @Override
+	  public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ItemCardapio other = (ItemCardapio) obj;
+		return Objects.equals(id, other.id);
+	  }
+	  
+	  
+}

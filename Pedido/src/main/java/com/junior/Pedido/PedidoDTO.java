@@ -1,0 +1,89 @@
+package com.junior.Pedido;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
+import com.junior.Pedido.entities.Cliente;
+import com.junior.Pedido.entities.ItemPedido;
+import com.junior.Pedido.entities.Pedido;
+import com.junior.Pedido.entities.StatusPedido;
+
+public class PedidoDTO {
+	private Long id;
+	private LocalDateTime dataHora;
+	private StatusPedido status;
+	private Cliente cliente;
+	private List<ItemPedido> itensPedido;
+	
+	public PedidoDTO(){
+		
+	}
+
+	public PedidoDTO(Pedido entity) {
+		
+		this.id = entity.getId();
+		this.dataHora = entity.getDataHora();
+		this.status = entity.getStatus();
+		this.cliente = entity.getCliente();
+		this.itensPedido = entity.getItensPedido();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	public StatusPedido getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusPedido status) {
+		this.status = status;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<ItemPedido> getItensPedido() {
+		return itensPedido;
+	}
+
+	public void setItensPedido(List<ItemPedido> itensPedido) {
+		this.itensPedido = itensPedido;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PedidoDTO other = (PedidoDTO) obj;
+		return Objects.equals(id, other.id);
+	}
+	
+	
+}
