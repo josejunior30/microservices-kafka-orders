@@ -28,7 +28,7 @@ INSERT INTO tb_pedido (id, data_hora, status, nome_cliente, cpf_cliente, celular
 INSERT INTO tb_pedido (id, data_hora, status, nome_cliente, cpf_cliente, celular_cliente, endereco_cliente) VALUES (14, '2024-10-13 18:00:00', 'REALIZADO', 'Chiquinha', '456.901.234-33', '(11) 94456-7890', 'Vila 8, Casa 73');
 INSERT INTO tb_pedido (id, data_hora, status, nome_cliente, cpf_cliente, celular_cliente, endereco_cliente) VALUES (15, '2024-10-13 18:30:00', 'REALIZADO', 'Malicha', '567.012.345-44', '(11) 95567-8901', 'Vila 8, Casa 71');
 
-INSERT INTO tb_item_pedido (id, quantidade, preco_unitario, observacao, pedido_id, item_cardapio_id) VALUES (1, 1, 3.50, NULL, 13, 10);
+INSERT INTO tb_item_pedido (id, quantidade, preco_unitario, observacao, pedido_id, item_cardapio_id) VALUES (1, 1, 3.50, NULL, 1, 10);
 INSERT INTO tb_item_pedido (id, quantidade, preco_unitario, observacao, pedido_id, item_cardapio_id) VALUES (2, 1, 5.99, 'Sem açúcar', 14, 11);
 INSERT INTO tb_item_pedido (id, quantidade, preco_unitario, observacao, pedido_id, item_cardapio_id) VALUES (3, 1, 4.99, 'Bem salgada', 14, 6); 
 INSERT INTO tb_item_pedido (id, quantidade, preco_unitario, observacao, pedido_id, item_cardapio_id) VALUES (4, 3, 2.99, 'Com gelo', 15, 2);

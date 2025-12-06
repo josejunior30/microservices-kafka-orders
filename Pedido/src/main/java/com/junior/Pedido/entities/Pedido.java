@@ -2,6 +2,7 @@ package com.junior.Pedido.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -11,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 
 @Entity
 @Table(name="tb_pedido")
@@ -22,7 +24,7 @@ public class Pedido {
 	
 	@Enumerated(EnumType.STRING)
 	private StatusPedido status;
-
+	@Valid
 	@Embedded
 	private Cliente cliente;
 

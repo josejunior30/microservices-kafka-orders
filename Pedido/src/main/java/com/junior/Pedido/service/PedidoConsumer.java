@@ -39,7 +39,7 @@ public class PedidoConsumer {
             logger.info("Pedido ID={} atualizado para PAGO", evento.pedidoId());
         } catch (Exception e) {
             logger.error("Erro ao processar mensagem: {}", mensagem, e);
-            throw new RuntimeException(e); 
+            
         }
     }
 }
