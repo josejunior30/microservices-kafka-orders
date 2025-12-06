@@ -1,14 +1,17 @@
 package com.junior.pagamento.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.junior.pagamento.DTO.PagamentoConfirmadoEvent;
 import com.junior.pagamento.entities.Pagamento;
 
 @Service
 public class PagamentoProducer {
-
+	private static final Logger logger = LoggerFactory.getLogger(PagamentoProducer.class);
 	private final KafkaTemplate<String, String> kafkaTemplate;
 	private final ObjectMapper objectMapper;
 
@@ -24,10 +27,10 @@ public class PagamentoProducer {
 			String message = objectMapper.writeValueAsString(event);
 
 			kafkaTemplate.send("pagamento-confirmado", pagamento.getPedidoId().toString(), message);
-
-			System.out.println("📤 Evento enviado para Kafka: " + message);
 		} catch (Exception e) {
-			throw new RuntimeException("Erro ao enviar mensagem Kafka", e);
+			logger.warn("Falha ao enviar evento para Kafka (ignorando). pedidoId={} motivo={}",
+					pagamento != null ? pagamento.getPedidoId() : null, e.getMessage());
 		}
 	}
+
 }
