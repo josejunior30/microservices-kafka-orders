@@ -28,8 +28,14 @@ Sistema didático com **3 microserviços** simulando um fluxo real orientado a e
 - **H2 Database**
 - **Apache PDFBox** (geração de PDF) • **ZXing** (QR Code)
 - **JUnit 5 + Mockito** (testes unitários e testes web com MockMvc)
-
+- **Swagger/OpenAPI (springdoc)**
 ---
+## 📚 Swagger (OpenAPI)
+
+- **Pedido**: http://localhost:8080/swagger-ui.html  
+- **Pagamento**: http://localhost:8081/swagger-ui.html  
+- **NotaFiscal**: http://localhost:8082/swagger-ui.html  
+
 
 ## 📦 Infra (Docker Compose)
 
@@ -38,3 +44,8 @@ O repositório inclui um `docker-compose.yml` com **2 brokers Kafka + Zookeeper 
 ```bash
 cd infra
 docker compose up -d
+
+Kafka UI:http://localhost:8085
+
+
+
